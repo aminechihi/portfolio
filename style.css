@@ -1,0 +1,306 @@
+body {
+        cursor: crosshair;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: "VT323", monospace;
+        font-size: 16px;
+        color: #00ff00;
+        background: #000;
+        text-shadow: 0 0 1px #0f0, 0 0 2px #0f0;
+        image-rendering: pixelated;
+        -webkit-font-smoothing: none;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        pointer-events: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0.2) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+        z-index: 9998;
+      }
+      .icon-container {
+        display: flex;
+        position: center;
+        gap: 70px;
+        text-align: center;
+        margin-left: 20%;
+      }
+      .icon-container a img {
+        width: 80px;
+        height: 80px;
+        image-rendering: pixelated;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+      .icon-container a img:hover {
+        transform: scale(1.2);
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      h1 {
+        color: #27ff5d;
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      .line {
+        text-align: center;
+        color: #00ff40;
+        margin-bottom: 20px;
+      }
+
+      .ascii-art {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .highlight {
+        color: #00ff80;
+      }
+
+      .warning {
+        color: #ffef00;
+        margin-top: 30px;
+      }
+
+      #crt-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        pointer-events: none;
+        z-index: 999;
+        opacity: 0.47; /* adjust for intensity */
+        mix-blend-mode: screen;
+      }
+
+      .keyboard {
+        bottom: 0;
+        left: 0;
+        width: 200%;
+        background-color: #ffffff00;
+        padding: 10px 0;
+        box-sizing: border-box;
+
+        /* Stack rows vertically and center them */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px; /* space between rows */
+        margin-left: 400px;
+      }
+
+      .keyboard-row {
+        display: flex;
+        flex-wrap: nowrap; /* make sure keys stay on one line */
+        justify-content: center;
+        max-width: 100%;
+        overflow-x: auto; /* allow scrolling if row is too long */
+      }
+
+      .key {
+        margin: 5px;
+        cursor: pointer;
+        transition: transform 0.1s ease;
+      }
+
+      .key.pressed {
+        transform: scale(0.88); /* Shrink when pressed */
+      }
+      .key img {
+        width: 30px; /* adjust to your image size */
+        height: auto;
+        display: block;
+      }
+
+      .terminal {
+        margin-top: 40px;
+        margin-left: 100px;
+        width: 80%;
+        max-width: 800px;
+        height: 300px;
+        background-color: black;
+        border: 2px solid #00ff00;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 20px;
+      }
+
+      #output {
+        word-wrap: break-word;
+        overflow-y: auto;
+        margin-bottom: 10px;
+        flex-grow: 1;
+      }
+
+      .input-area {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+
+      #userInput {
+        background: transparent;
+        border: none;
+        color: #00ff00;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 16px;
+        outline: none;
+        width: 100%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        resize: none;
+        height: 60px;
+        position: relative;
+      }
+
+      #userInput::after {
+        content: "|";
+        position: absolute;
+        animation: blink 1s step-start infinite;
+        color: #00ff00;
+      }
+
+      #sendBtn {
+        background-color: #00ff00;
+        color: black;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-weight: bold;
+        height: 60px;
+      }
+
+      #sendBtn:hover {
+        background-color: #009900;
+      }
+
+      .output-section {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        100% {
+          opacity: 0;
+        }
+      }
+      #testConsole {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 320px;
+        height: 240px;
+        background-color: #000;
+        color: #00ff00;
+        border: 2px solid lime;
+        padding: 10px;
+        font-family: monospace;
+        font-size: 12px;
+        z-index: 9999;
+        box-shadow: 0 0 10px lime;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .console-header {
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      #logArea {
+        flex: 1;
+        overflow-y: auto;
+        margin-bottom: 10px;
+      }
+
+      #rerunBtn {
+        background-color: lime;
+        color: black;
+        font-weight: bold;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      #rerunBtn:hover {
+        background-color: #00ff00;
+      }
+
+      /* Status-based coloring */
+      .pass {
+        color: #00ff00;
+      }
+      .warn {
+        color: #ffff00;
+      }
+      .fail {
+        color: #fe0c0c;
+      }
+      .info {
+        color: #00bfff;
+      }
+
+      #tools {
+  margin: 40px auto;
+  text-align: center;
+}
+
+#tools h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.tool-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.tool {
+  width: 100px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.tool:hover {
+  transform: scale(1.1);
+}
+
+.tool img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
