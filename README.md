@@ -31,15 +31,16 @@ Welcome to my personal QA portfolio! This project showcases a **live QA Test Con
 📁 /project-root
 ├── images # Media for the project
 ├── index.html # Main portfolio page
-├── script.js # keyboard input detection
+├── boot.js # Boot fonctionality
+├── keyboard.js # keyboard input detection
 ├── testlog.js # Test logic and test runner
-├── sendsound.js # Send email script
+├── sendsound.js # Send email an sound player script
 ├── vhs-overlay1.mp4 # overlay for the html page
 ├── style.css # Custom styles
 └── README.md # You're here!
 
 1- Open index.html in your browser.
-2- Send me email if you are interested to hire me.
+2- Send me email if you are interested to hire me or send a bug report.
 3- Click "Run Tests Again" or watch tests run automatically every 10 seconds.
 
 🎯 Why This Project?
