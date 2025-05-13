@@ -46,13 +46,21 @@ body {
       transition: opacity 1s ease;
     }
 
-  .warningx {
+.red-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+      margin-left: 10px;
+      animation: blink 1s infinite;
+    }
+
+    .warningx {
       color: #0f0;
-      font-size: 1.5rem;
+      font-size: 1rem;
       font-weight: bold;
-      margin-bottom: 30px;
       text-align: center;
-      border: 3px solid #0f0;
       padding: 15px;
       background-color: #000;
       box-shadow: 0 0 10px #0f0;
@@ -62,6 +70,13 @@ body {
       user-select: none;
       transition: all 0.3s ease;
       font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     .flicker {
