@@ -1,9 +1,10 @@
-let booted = false;
+ // Track if the boot sequence has run
+    let booted = false;
 
-    document.body.addEventListener("click", () => {
-      if (booted) return;
-      booted = true;
-
+    // This will trigger once on first click
+    document.body.addEventListener("click", function () {
+      if (booted) return;  // Prevent boot sequence from running more than once
+      booted = true;  // Mark boot sequence as complete 
 
 // Wait for user click to trigger the animation
       const sound = document.getElementById("monitorSound");
@@ -30,9 +31,10 @@ let booted = false;
         flicker.style.opacity = 0;
         content.style.opacity = 1;
         startAnimations();
+         flicker.style.display = "none"; // Hides the flicker effect element
       }, 1150); // Flicker lasts for 2 seconds
-    });
-
+   
+});
     // Animations: Matrix Title + Loading Bar
     function startAnimations() {
       const titleEl = document.getElementById("matrixTitle");
