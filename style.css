@@ -1,3 +1,10 @@
+     html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal scroll */
+  overflow-y: auto;   /* allow vertical scroll */
+}
+
 body {
         cursor: crosshair;
         display: flex;
@@ -14,12 +21,7 @@ body {
         -moz-osx-font-smoothing: grayscale;
       }
 
-      html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* prevent horizontal scroll */
-  overflow-y: auto;   /* allow vertical scroll */
-}
+ 
 
       body::after {
         content: "";
@@ -38,6 +40,14 @@ body {
         );
         z-index: 9998;
       }
+
+       .reboot-container {
+      white-space: pre-line;
+    }
+    .loading-bar {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
       .icon-container {
         display: flex;
         position: center;
