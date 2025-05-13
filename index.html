@@ -13,213 +13,226 @@
   </head>
 
   <body>
-    <video autoplay muted loop playsinline id="crt-video">
-      <source src="vhs-overlay1.mp4" type="video/mp4" />
-    </video>
+    <!-- Monitor switch sound -->
+    <audio id="monitorSound" src="CRT.mp3"></audio>
 
-    <div class="container">
-      <header class="site-header">
-        <h1 class="title">AMINECHIHI PORTFOLIO</h1>
-        <div class="line">--------------------------</div>
-      </header>
-      <div class="ascii-art">
-        <img
-          src="images/logo.png"
-          alt="Pixel Laptop"
-          width="120"
-          class="logo"
-        />
-        <div class="reboot-container">
-          BORN IN 1991<br />
-          REBOOT IN PROCESS...
-          <div class="loading-bar" id="loadingBar">
-            [░░░░░░░░░░░░░░░░░░░░] 0%
+    <!-- Flicker effect div -->
+    <div class="flicker" id="flickerEffect"></div>
+    <!-- Warning message (will be shown before click) -->
+    <div class="warningx" id="warningMessage">Click to power on the PC</div>
+
+    <div id="content">
+      <video autoplay muted loop playsinline id="crt-video">
+        <source src="vhs-overlay1.mp4" type="video/mp4" />
+      </video>
+
+      <div class="container">
+        <header class="site-header">
+          <h1 class="title" id="matrixTitle">AMINE CHIHI | PORTFOLIO</h1>
+
+          <div class="line">--------------------------</div>
+        </header>
+        <div class="ascii-art">
+          <img
+            src="images/logo.png"
+            alt="Pixel Laptop"
+            width="120"
+            class="logo"
+          />
+          <div class="reboot-container">
+            BORN IN 1991<br />
+            REBOOT IN PROCESS...
+            <div class="loading-bar" id="loadingBar">
+              [░░░░░░░░░░░░░░░░░░░░] 0%
+            </div>
           </div>
-          <script src="loadingbar.js"></script>
         </div>
-      </div>
-      <p>
-        Welcome to my personal website! I'm a dedicated software tester with a
-        sharp eye for quality and a strong foundation in computer science. Born
-        in 1991, I’ve grown up alongside the evolution of tech — and I’ve made
-        it my mission to stay one step ahead. In 2025, I became ISTQB Foundation
-        Level 4 certified, and over the years I've gained practical experience
-        with leading testing tools like Selenium, Cypress, and Playwright. My
-        passion for test automation and emerging fields like AI testing keeps me
-        constantly exploring and improving.
-      </p>
-      <p class="warning">
-        From 2018 to 2025, I was part of the QA team at Joom, where I mastered
-        tools like Jira and Confluence, and helped drive quality-first
-        development workflows. Along the way, I've sharpened my skills in
-        JavaScript, TypeScript, Python, and C# — because for me, learning is a
-        continuous journey. This site is not just a portfolio. It's a checkpoint
-        in my quest to fuse curiosity, code, and quality.
-      </p>
+        <p>
+          Welcome to my personal website! I'm a dedicated software tester with a
+          sharp eye for quality and a strong foundation in computer science.
+          Born in 1991, I’ve grown up alongside the evolution of tech — and I’ve
+          made it my mission to stay one step ahead. In 2025, I became ISTQB
+          Foundation Level 4 certified, and over the years I've gained practical
+          experience with leading testing tools like Selenium, Cypress, and
+          Playwright. My passion for test automation and emerging fields like AI
+          testing keeps me constantly exploring and improving.
+        </p>
+        <p class="warning">
+          From 2018 to 2025, I was part of the QA team at Joom, where I mastered
+          tools like Jira and Confluence, and helped drive quality-first
+          development workflows. Along the way, I've sharpened my skills in
+          JavaScript, TypeScript, Python, and C# — because for me, learning is a
+          continuous journey. This site is not just a portfolio. It's a
+          checkpoint in my quest to fuse curiosity, code, and quality.
+        </p>
 
-      <div class="icon-container">
-        <a class="icon" href="https://github.com/aminechihi" target="_blank">
-          <img
-            src="https://media.giphy.com/media/CwTvSiWflgCGKgz5eb/giphy.gif"
-            alt="GitHub"
-          />
-          <div class="warning">GitHub</div>
-        </a>
-        <a
-          class="icon"
-          href="https://www.coursera.org/account/accomplishments/verify/KPFD44M8ZXCU"
-          target="_blank"
-        >
-          <img
-            src="https://miro.medium.com/v2/resize:fit:960/1*-tOldEbfjijxn9VqZeULqg.gif"
-            alt="JS Certificate"
-          />
-          <div class="warning">JavaScript</div>
-        </a>
-        <a class="icon" href="istqb-certificate.pdf" target="_blank">
-          <img
-            src="https://www.gasq.org/files/content/gasq/downloads/certification/ISTQB/ISTQB.png"
-            alt="ISTQB Certificate"
-          />
-          <div class="warning">ISTQB</div>
-        </a>
-        <a
-          class="icon"
-          href="https://www.linkedin.com/in/chihiamine/"
-          target="_blank"
-        >
-          <img
-            src="https://cliply.co/wp-content/uploads/2021/02/372102050_LINKEDIN_ICON_TRANSPARENT_1080.gif"
-            alt="LinkedIn"
-          />
-          <div class="warning">LinkedIn</div>
-        </a>
-      </div>
-
-      <section id="tools">
-        <h2>🛠️ Tools & Frameworks</h2>
-        <div class="tool-grid">
-          <div class="tool">
-            <img src="images/selenium.svg" alt="Selenium" title="Selenium" />
-            <p>Selenium</p>
-          </div>
-          <div class="tool">
-            <img src="images/cypress.svg" alt="Cypress" title="Cypress" />
-            <p>Cypress</p>
-          </div>
-          <div class="tool">
+        <div class="icon-container">
+          <a class="icon" href="https://github.com/aminechihi" target="_blank">
             <img
-              src="images/playwright.svg"
-              alt="Playwright"
-              title="Playwright"
+              src="https://media.giphy.com/media/CwTvSiWflgCGKgz5eb/giphy.gif"
+              alt="GitHub"
             />
-            <p>Playwright</p>
-          </div>
-          <div class="tool">
-            <img src="images/postman.svg" alt="Postman" title="Postman" />
-            <p>Postman</p>
-          </div>
-          <div class="tool">
-            <img src="images/jmeter.svg" alt="JMeter" title="JMeter" />
-            <p>JMeter</p>
-          </div>
-          <div class="tool">
-            <img src="images/mantisbt.png" alt="Mantis" title="Mantis" />
-            <p>MantisBT</p>
-          </div>
-          <div class="tool">
-            <img src="images/testlink.png" alt="Test Link" title="Tst Link" />
-            <p>Test Link</p>
-          </div>
-        </div>
-      </section>
-
-      <div class="terminal">
-        <div class="output-section">
-          <div id="output">
-            Welcome to Amine Chihi's Terminal Type your message and press
-            Send...
-          </div>
-        </div>
-        <div class="input-area">
-          <textarea
-            id="userInput"
-            placeholder="Type your message here..."
-          ></textarea>
-          <button id="sendBtn">Send</button>
-          <
+            <div class="warning">GitHub</div>
+          </a>
+          <a
+            class="icon"
+            href="https://www.coursera.org/account/accomplishments/verify/KPFD44M8ZXCU"
+            target="_blank"
+          >
+            <img
+              src="https://miro.medium.com/v2/resize:fit:960/1*-tOldEbfjijxn9VqZeULqg.gif"
+              alt="JS Certificate"
+            />
+            <div class="warning">JavaScript</div>
+          </a>
+          <a class="icon" href="istqb-certificate.pdf" target="_blank">
+            <img
+              src="https://www.gasq.org/files/content/gasq/downloads/certification/ISTQB/ISTQB.png"
+              alt="ISTQB Certificate"
+            />
+            <div class="warning">ISTQB</div>
+          </a>
+          <a
+            class="icon"
+            href="https://www.linkedin.com/in/chihiamine/"
+            target="_blank"
+          >
+            <img
+              src="https://cliply.co/wp-content/uploads/2021/02/372102050_LINKEDIN_ICON_TRANSPARENT_1080.gif"
+              alt="LinkedIn"
+            />
+            <div class="warning">LinkedIn</div>
+          </a>
         </div>
 
-        <div class="keyboard-row">
-          <div class="key" id="key-A"><img src="images/A.png" alt="A" /></div>
-          <div class="key" id="key-Z"><img src="images/Z.png" alt="S" /></div>
-          <div class="key" id="key-E"><img src="images/E.png" alt="D" /></div>
-          <div class="key" id="key-R"><img src="images/R.png" alt="D" /></div>
-          <div class="key" id="key-T"><img src="images/T.png" alt="D" /></div>
-          <div class="key" id="key-Y"><img src="images/Y.png" alt="D" /></div>
-          <div class="key" id="key-U"><img src="images/U.png" alt="D" /></div>
-          <div class="key" id="key-I"><img src="images/I.png" alt="D" /></div>
-          <div class="key" id="key-O"><img src="images/O.png" alt="D" /></div>
-          <div class="key" id="key-P"><img src="images/P.png" alt="D" /></div>
-          <div class="key" id="key-Q"><img src="images/Q.png" alt="A" /></div>
-          <div class="key" id="key-S"><img src="images/S.png" alt="S" /></div>
-          <div class="key" id="key-D"><img src="images/D.png" alt="D" /></div>
-        </div>
+        <section id="tools">
+          <h2>🛠️ Tools & Frameworks</h2>
+          <div class="tool-grid">
+            <div class="tool">
+              <img src="images/selenium.svg" alt="Selenium" title="Selenium" />
+              <p>Selenium</p>
+            </div>
+            <div class="tool">
+              <img src="images/cypress.svg" alt="Cypress" title="Cypress" />
+              <p>Cypress</p>
+            </div>
+            <div class="tool">
+              <img
+                src="images/playwright.svg"
+                alt="Playwright"
+                title="Playwright"
+              />
+              <p>Playwright</p>
+            </div>
+            <div class="tool">
+              <img src="images/postman.svg" alt="Postman" title="Postman" />
+              <p>Postman</p>
+            </div>
+            <div class="tool">
+              <img src="images/jmeter.svg" alt="JMeter" title="JMeter" />
+              <p>JMeter</p>
+            </div>
+            <div class="tool">
+              <img src="images/mantisbt.png" alt="Mantis" title="Mantis" />
+              <p>MantisBT</p>
+            </div>
+            <div class="tool">
+              <img src="images/testlink.png" alt="Test Link" title="Tst Link" />
+              <p>Test Link</p>
+            </div>
+          </div>
+        </section>
 
-        <div class="keyboard-row">
-          <div class="key" id="key-F"><img src="images/F.png" alt="D" /></div>
-          <div class="key" id="key-G"><img src="images/G.png" alt="D" /></div>
-          <div class="key" id="key-H"><img src="images/H.png" alt="D" /></div>
-          <div class="key" id="key-J"><img src="images/J.png" alt="D" /></div>
-          <div class="key" id="key-K"><img src="images/K.png" alt="D" /></div>
-          <div class="key" id="key-L"><img src="images/L.png" alt="D" /></div>
-          <div class="key" id="key-M"><img src="images/M.png" alt="D" /></div>
-          <div class="key" id="key-W"><img src="images/W.png" alt="A" /></div>
-          <div class="key" id="key-X"><img src="images/X.png" alt="S" /></div>
-          <div class="key" id="key-C"><img src="images/C.png" alt="D" /></div>
-        </div>
+        <div class="terminal">
+          <div class="output-section">
+            <div id="output">
+              Welcome to Amine Chihi's Terminal Type your message and press
+              Send...
+            </div>
+          </div>
+          <div class="input-area">
+            <textarea
+              id="userInput"
+              placeholder="Type your message here..."
+            ></textarea>
+            <button id="sendBtn">Send</button>
+            <
+          </div>
 
-        <div class="keyboard-row">
-          <div class="key" id="key-V"><img src="images/V.png" alt="D" /></div>
-          <div class="key" id="key-B"><img src="images/B.png" alt="D" /></div>
-          <div class="key" id="key-N"><img src="images/N.png" alt="D" /></div>
-          <div class="key" id="key-@"><img src="images/@.png" alt="D" /></div>
-          <div class="key" id="key-."><img src="images/PT.png" alt="D" /></div>
-          <div class="key" id="key-1"><img src="images/1.png" alt="D" /></div>
-          <div class="key" id="key-2"><img src="images/2.png" alt="D" /></div>
-          <div class="key" id="key-3"><img src="images/3.png" alt="D" /></div>
-          <div class="key" id="key-4"><img src="images/4.png" alt="D" /></div>
-          <div class="key" id="key-5"><img src="images/5.png" alt="D" /></div>
-          <div class="key" id="key-6"><img src="images/6.png" alt="D" /></div>
-          <div class="key" id="key-7"><img src="images/7.png" alt="D" /></div>
-          <div class="key" id="key-8"><img src="images/8.png" alt="D" /></div>
-          <div class="key" id="key-9"><img src="images/9.png" alt="D" /></div>
-          <div class="key" id="key-0"><img src="images/0.png" alt="D" /></div>
+          <div class="keyboard-row">
+            <div class="key" id="key-A"><img src="images/A.png" alt="A" /></div>
+            <div class="key" id="key-Z"><img src="images/Z.png" alt="S" /></div>
+            <div class="key" id="key-E"><img src="images/E.png" alt="D" /></div>
+            <div class="key" id="key-R"><img src="images/R.png" alt="D" /></div>
+            <div class="key" id="key-T"><img src="images/T.png" alt="D" /></div>
+            <div class="key" id="key-Y"><img src="images/Y.png" alt="D" /></div>
+            <div class="key" id="key-U"><img src="images/U.png" alt="D" /></div>
+            <div class="key" id="key-I"><img src="images/I.png" alt="D" /></div>
+            <div class="key" id="key-O"><img src="images/O.png" alt="D" /></div>
+            <div class="key" id="key-P"><img src="images/P.png" alt="D" /></div>
+            <div class="key" id="key-Q"><img src="images/Q.png" alt="A" /></div>
+            <div class="key" id="key-S"><img src="images/S.png" alt="S" /></div>
+            <div class="key" id="key-D"><img src="images/D.png" alt="D" /></div>
+          </div>
+
+          <div class="keyboard-row">
+            <div class="key" id="key-F"><img src="images/F.png" alt="D" /></div>
+            <div class="key" id="key-G"><img src="images/G.png" alt="D" /></div>
+            <div class="key" id="key-H"><img src="images/H.png" alt="D" /></div>
+            <div class="key" id="key-J"><img src="images/J.png" alt="D" /></div>
+            <div class="key" id="key-K"><img src="images/K.png" alt="D" /></div>
+            <div class="key" id="key-L"><img src="images/L.png" alt="D" /></div>
+            <div class="key" id="key-M"><img src="images/M.png" alt="D" /></div>
+            <div class="key" id="key-W"><img src="images/W.png" alt="A" /></div>
+            <div class="key" id="key-X"><img src="images/X.png" alt="S" /></div>
+            <div class="key" id="key-C"><img src="images/C.png" alt="D" /></div>
+          </div>
+
+          <div class="keyboard-row">
+            <div class="key" id="key-V"><img src="images/V.png" alt="D" /></div>
+            <div class="key" id="key-B"><img src="images/B.png" alt="D" /></div>
+            <div class="key" id="key-N"><img src="images/N.png" alt="D" /></div>
+            <div class="key" id="key-@"><img src="images/@.png" alt="D" /></div>
+            <div class="key" id="key-.">
+              <img src="images/PT.png" alt="D" />
+            </div>
+            <div class="key" id="key-1"><img src="images/1.png" alt="D" /></div>
+            <div class="key" id="key-2"><img src="images/2.png" alt="D" /></div>
+            <div class="key" id="key-3"><img src="images/3.png" alt="D" /></div>
+            <div class="key" id="key-4"><img src="images/4.png" alt="D" /></div>
+            <div class="key" id="key-5"><img src="images/5.png" alt="D" /></div>
+            <div class="key" id="key-6"><img src="images/6.png" alt="D" /></div>
+            <div class="key" id="key-7"><img src="images/7.png" alt="D" /></div>
+            <div class="key" id="key-8"><img src="images/8.png" alt="D" /></div>
+            <div class="key" id="key-9"><img src="images/9.png" alt="D" /></div>
+            <div class="key" id="key-0"><img src="images/0.png" alt="D" /></div>
+          </div>
+          <!-- Add more keys as needed -->
         </div>
-        <!-- Add more keys as needed -->
       </div>
-    </div>
-    <script src="keyboard.js"></script>
+      <script src="keyboard.js"></script>
 
-    <audio
-      id="keySound"
-      src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"
-      preload="auto"
-    ></audio>
+      <audio
+        id="keySound"
+        src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"
+        preload="auto"
+      ></audio>
 
-    <script src="sendsound.js"></script>
+      <script src="sendsound.js"></script>
 
-    <div id="testConsole">
-      <div class="console-header">
-        🧪 QA Test Console
-        <button id="closeConsole" title="Close Console">✖</button>
+      <div id="testConsole">
+        <div class="console-header">
+          🧪 QA Test Console
+          <button id="closeConsole" title="Close Console">✖</button>
+        </div>
+        <pre id="logArea"></pre>
+        <button id="rerunBtn">Run Tests Again</button>
       </div>
-      <pre id="logArea"></pre>
-      <button id="rerunBtn">Run Tests Again</button>
-    </div>
 
-    <script src="testlog.js"></script>
-    <script src="dragconsole.js"></script>
+      <script src="testlog.js"></script>
+      <script src="dragconsole.js"></script>
+      <script src="matrixtitleload.js"></script>
+    </div>
   </body>
 
   <!-- 
