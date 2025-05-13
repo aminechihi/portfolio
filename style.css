@@ -247,6 +247,12 @@ body {
         flex-grow: 1;
       }
 
+      .blinking-cursor {
+  color: #0f0;
+  font-weight: bold;
+  animation: blink 1s steps(2, start) infinite;
+}
+
       .input-area {
         display: flex;
         gap: 10px;
@@ -295,6 +301,11 @@ body {
         flex-direction: column;
         flex-grow: 1;
       }
+
+      .output-section span {
+  display: block;
+  
+}
 
       @keyframes blink {
         0%,
