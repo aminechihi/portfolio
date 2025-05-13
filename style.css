@@ -110,7 +110,7 @@ body {
 
      h1.title {
       font-size: 1.5rem;
-      letter-spacing: 0.1rem;
+      
       white-space: nowrap;
       text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
     }

@@ -24,7 +24,7 @@
         flicker.style.opacity = 0;
         content.style.opacity = 1;
         startAnimations();
-      }, 1200); // Flicker lasts for 2 seconds
+      }, 1150); // Flicker lasts for 2 seconds
     });
 
     // Animations: Matrix Title + Loading Bar
