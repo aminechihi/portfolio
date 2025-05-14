@@ -1,40 +1,62 @@
- // Track if the boot sequence has run
-    let booted = false;
+let booted = false;
 
-    // This will trigger once on first click
-    document.body.addEventListener("click", function () {
-      if (booted) return;  // Prevent boot sequence from running more than once
-      booted = true;  // Mark boot sequence as complete 
+document.body.addEventListener("click", function () {
+  if (booted) return;
+  booted = true;
 
-// Wait for user click to trigger the animation
-      const sound = document.getElementById("monitorSound");
-      const content = document.getElementById("content");
-      const flicker = document.getElementById("flickerEffect");
-      const warningMessage = document.getElementById("warningMessage");
+  const sound = document.getElementById("monitorSound");
+  const content = document.getElementById("content");
+  const flicker = document.getElementById("flickerEffect");
+  const warningMessage = document.getElementById("warningMessage");
+  const floppy = document.getElementById("floppyDisk");
 
-      // Hide the warning message as soon as the user clicks
-      warningMessage.style.display = "none";
+  // Floppy animation
+  const floppyFrames = [
+    "images/floppy1.png",
+    "images/floppy2.png",
+    "images/floppy3.png"
+  ];
 
-      // Play the power-on sound
-      sound.volume = 0.5;
-      sound.play().catch(() => {
-        // If autoplay is blocked, show content anyway
-        content.style.opacity = 1;
-        startAnimations();
-      });
+  let frameIndex = 0;
 
-      // Start the flicker effect immediately after the click
-      flicker.style.opacity = 1;
+  const playFloppyAnimation = () => {
+    const interval = setInterval(() => {
+      frameIndex++;
+      if (frameIndex < floppyFrames.length) {
+        floppy.src = floppyFrames[frameIndex];
+      } else {
+        clearInterval(interval);
 
-      // After a short delay, stop flicker and show content
-      setTimeout(() => {
-        flicker.style.opacity = 0;
-        content.style.opacity = 1;
-        startAnimations();
-         flicker.style.display = "none"; // Hides the flicker effect element
-      }, 1150); // Flicker lasts for 2 seconds
-   
+        // ✅ Only hide the message after floppy is fully inserted
+        warningMessage.style.display = "none";
+
+        // CRT boot sequence
+        startCRTSequence();
+      }
+    }, 200); // Slower for testing
+  };
+
+  const startCRTSequence = () => {
+    sound.volume = 0.5;
+    sound.play().catch(() => {
+      content.style.opacity = 1;
+      startAnimations();
+    });
+
+    flicker.style.opacity = 1;
+
+    setTimeout(() => {
+      flicker.style.opacity = 0;
+      flicker.style.display = "none";
+      content.style.opacity = 1;
+      startAnimations();
+    }, 1150);
+  };
+
+  playFloppyAnimation();
 });
+
+
     // Animations: Matrix Title + Loading Bar
     function startAnimations() {
       const titleEl = document.getElementById("matrixTitle");
