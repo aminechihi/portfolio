@@ -71,7 +71,7 @@ body {
 
 /* Floppy Disk Styling */
 .floppy {
-  width: 320px;
+  width: 240px;
   cursor: pointer;
   transition: transform 1s ease;
   z-index: 10;
@@ -80,10 +80,6 @@ body {
   padding: 4px;
 }
 
-.floppy:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 15px #0f0);
-}
 
 /* Drive + Blinking Dot Row */
 .drive-indicator {
@@ -96,7 +92,7 @@ body {
 
 /* Drive Slot Styling */
 .drive-slot {
-  width: 320px;
+  width: 240px;
   height: 10px;
   background: #333;
   border-radius: 4px;
@@ -121,7 +117,7 @@ body {
 .insert-message {
   color: #00ff00;
   font-family: 'Courier New', monospace;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-top: 20px;
   animation: blink-cursor 1.2s infinite;
   text-shadow: 0 0 4px #00ff00;
