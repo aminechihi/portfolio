@@ -79,6 +79,8 @@ body {
       transform: translate(-50%, -50%);
     }
 
+ 
+
     .flicker {
       position: absolute;
       top: 0;
@@ -232,7 +234,7 @@ body {
         margin-left: 100px;
         width: 80%;
         max-width: 800px;
-        height: 300px;
+        height: 350px;
         background-color: black;
         border: 2px solid #00ff00;
         display: flex;
@@ -296,14 +298,21 @@ body {
       #sendBtn:hover {
         background-color: #009900;
       }
+      
+  .output-section {
 
-      .output-section {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      .output-section2 {
         overflow-x: auto;       /* Enables horizontal scroll if needed */
-  overflow-y: auto;
-  max-height: 300px;      /* Optional: keeps it from growing too tall */
+        overflow-y: auto;
+         max-height: 300px;      /* Optional: keeps it from growing too tall */
 
-  white-space: pre-wrap;  /* Allows wrapping inside <pre> */
-  word-break: break-word; /* Breaks long words that don't have spaces */
+        white-space: pre-wrap;  /* Allows wrapping inside <pre> */
+        word-break: break-word; /* Breaks long words that don't have spaces */
         display: flex;
         flex-direction: column;
         flex-grow: 1;
@@ -545,7 +554,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
   }
-.output-section {
+.output-section2 {
         overflow-x: auto;       /* Enables horizontal scroll if needed */
   overflow-y: auto;
   max-height: 300px;      /* Optional: keeps it from growing too tall */
@@ -579,13 +588,10 @@ body {
   .container,
   .terminal {
     width: 95%;
+    height: auto;
     margin: 10px auto;
     padding: 10px;
     font-size: 10px;
-  }
-
-  .terminal {
-    height: auto;
   }
 
   .keyboard {
