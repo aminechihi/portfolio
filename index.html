@@ -19,9 +19,26 @@
     <!-- Flicker effect div -->
     <div class="flicker" id="flickerEffect"></div>
     <!-- Warning message (will be shown before click) -->
+
     <div class="warningx" id="warningMessage">
-      <span>Click to power on the PC<span class="red-dot"></span></span>
+      
+
+     <div class="boot-screen" id="bootScreen">
+  
+
+  <div class="drive-indicator">
+    <div class="drive-slot"></div>
+    <span class="blinking-dot"></span>
+  </div>
+<div class="floppy-area">
+    <img src="images/floppy1.png" alt="Insert Floppy Disk" class="floppy" id="floppyDisk">
+  </div>
+  <p class="insert-message">Click to insert floppy & power CRT</p>
+</div>
     </div>
+
+    
+
 
     <div id="content">
       <video autoplay muted loop playsinline id="crt-video">
