@@ -158,6 +158,15 @@ sendBtn.addEventListener("click", () => {
 /* trigger buf */
 
 triggerBugBtn.addEventListener("click", () => {
+
+  if(sendSound) {
+    try {
+      sendSound.currentTime = 0;
+      sendSound.play();
+    } catch (err) {
+      // ignore if blocked by browser autoplay policies
+    }
+  }
   // Simulate a bug: trying to access property of undefined
   const brokenObject = undefined;
   console.log(brokenObject.someProperty); // 💥 This triggers an error
