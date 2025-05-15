@@ -14,32 +14,32 @@
 
   <body>
     <!-- Monitor switch sound -->
-    <audio id="monitorSound" src="CRT.mp3"></audio>
+    <audio id="monitorSound" src="audio/crt.mp3"></audio>
+    <!-- Send switch sound -->
+    <audio id="sendSound" src="audio/send-sound.mp3" preload="auto"></audio>
 
     <!-- Flicker effect div -->
-         <div class="flicker" id="flickerEffect"></div>
+    <div class="flicker" id="flickerEffect"></div>
 
     <!-- Warning message (will be shown before click) -->
 
     <div class="warningx" id="warningMessage">
-      
-
-     <div class="boot-screen" id="bootScreen">
-  
-
-  <div class="drive-indicator">
-    <div class="drive-slot"></div>
-    <span class="blinking-dot"></span>
-  </div>
-<div class="floppy-area">
-    <img src="images/floppy1.png" alt="Insert Floppy Disk" class="floppy" id="floppyDisk">
-  </div>
-  <p class="insert-message">Click to insert floppy & power CRT</p>
-</div>
+      <div class="boot-screen" id="bootScreen">
+        <div class="drive-indicator">
+          <div class="drive-slot"></div>
+          <span class="blinking-dot"></span>
+        </div>
+        <div class="floppy-area">
+          <img
+            src="images/floppy1.png"
+            alt="Insert Floppy Disk"
+            class="floppy"
+            id="floppyDisk"
+          />
+        </div>
+        <p class="insert-message">Click to insert floppy & power CRT</p>
+      </div>
     </div>
-
-    
-
 
     <div id="content">
       <video autoplay muted loop playsinline id="crt-video">
@@ -59,6 +59,12 @@
             width="120"
             class="logo"
           />
+
+          <div
+            id="logAreaterminal"
+            style="white-space: pre-wrap; font-family: monospace; color: red"
+          ></div>
+
           <div class="reboot-container">
             BORN IN 1991<br />
             LOADING TEST CASES...
@@ -248,6 +254,7 @@
           <button id="closeConsole" title="Close Console">✖</button>
         </div>
         <pre id="logArea"></pre>
+
         <button id="rerunBtn">Run Tests Again</button>
       </div>
 
@@ -255,97 +262,206 @@
       <script src="dragconsole.js"></script>
       <script src="boot.js"></script>
 
-<div class="api-console hidden" id="apiConsole">
-  <div class="console-headerAPI">
-    <p>API Test Console</p>
-    <button id="closeConsoleAPI" title="Close Console">✖</button>
-  </div>
-  <div class="console-body">
-    <div class="console-output" id="consoleOutputAPI">
-      <p>[INFO] Console ready. Enter an API endpoint to test.</p>
+      <div class="api-console hidden" id="apiConsole">
+        <div class="console-headerAPI">
+          <p>API Test Console</p>
+          <button id="closeConsoleAPI" title="Close Console">✖</button>
+        </div>
+        <div class="console-body">
+          <div class="console-output" id="consoleOutputAPI">
+            <p>[INFO] Console ready. Enter an API endpoint to test.</p>
+          </div>
+          <div class="console-input">
+            <input
+              type="text"
+              id="apiInput"
+              placeholder="Enter API endpoint..."
+            />
+            <button id="sendRequest">Send</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="console-input">
-      <input type="text" id="apiInput" placeholder="Enter API endpoint..." />
-      <button id="sendRequest">Send</button>
+    <script src="Postman.js"></script>
+
+    <!-- ----------------------------------------------
+ -->
+    <div class="selcyp-console" id="playwrightConsole" style="display: none">
+      <div class="output-section2">
+        <span
+          >🎭 Playwright Test Runner
+          <button
+            id="closeConsolePlaywright"
+            title="Close Console"
+            style="
+              float: right;
+              background: none;
+              border: none;
+              color: rgb(255, 0, 0);
+              font-size: 16px;
+              cursor: pointer;
+            "
+          >
+            ✖
+          </button></span
+        >
+
+        <span>------------------------------</span>
+        <pre id="playwrightLogs">Click "Run Tests" to begin...</pre>
+        <button onclick="runFakeTests()">Run Tests</button>
+      </div>
     </div>
-  </div>
-</div>
 
-</div>
-<script src="Postman.js"></script>
+    <script src="playwright.js"></script>
 
-<!-- ----------------------------------------------
- -->
-<div class="selcyp-console" id="playwrightConsole" style="display: none;">
-  <div class="output-section2">
-    <span>🎭 Playwright Test Runner <button id="closeConsolePlaywright" title="Close Console" style="float:right; background:none; border:none; color:rgb(255, 0, 0); font-size:16px; cursor:pointer;">✖</button></span>
-    
-    <span>------------------------------</span>
-    <pre id="playwrightLogs">Click "Run Tests" to begin...</pre>
-    <button onclick="runFakeTests()">Run Tests</button>
-  </div>
-</div>
-
-<script src="playwright.js"></script>
-
-<!-- ----------------------------------------------
+    <!-- ----------------------------------------------
  -->
 
- <div id="jmeterConsole" style="display:none; position:fixed; bottom:20px; right:20px; width:400px; background:#000; color:#0f0; border:2px solid #0f0; padding:20px; font-family:'Courier New', monospace; z-index:1000;">
-  <button id="closeJmeterConsole" style="float:right; background:none; border:none; color:rgb(255, 0, 0); font-size:16px; cursor:pointer;">✖</button>
-  <h3 style="margin-top:0;">JMeter Simulation</h3>
-  <p>Running test on: <code>https://aminechihi.github.io/portfolio/posts</code></p>
-  <pre id="jmeterOutput">Initializing...</pre>
-</div>
-<script src="Jmeter.js"></script>
+    <div
+      id="jmeterConsole"
+      style="
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 400px;
+        background: #000;
+        color: #0f0;
+        border: 2px solid #0f0;
+        padding: 20px;
+        font-family: 'Courier New', monospace;
+        z-index: 1000;
+      "
+    >
+      <button
+        id="closeJmeterConsole"
+        style="
+          float: right;
+          background: none;
+          border: none;
+          color: rgb(255, 0, 0);
+          font-size: 16px;
+          cursor: pointer;
+        "
+      >
+        ✖
+      </button>
+      <h3 style="margin-top: 0">JMeter Simulation</h3>
+      <p>
+        Running test on:
+        <code>https://aminechihi.github.io/portfolio/posts</code>
+      </p>
+      <pre id="jmeterOutput">Initializing...</pre>
+    </div>
+    <script src="Jmeter.js"></script>
 
-<!-- Selenium Console -->
-<div class="selcyp-console" id="seleniumConsole" style="display: none;">
-  <div class="output-section2">
-    <span>Selenium Test Runner <button id="closeConsoleSelenium" title="Close Console" style="float:right; background:none; border:none; color:rgb(255, 0, 0); font-size:16px; cursor:pointer;">✖</button></span>
-    <span>------------------------------</span>
-    <pre id="seleniumLogs">Click "Run Tests" to begin...</pre>
-    <button onclick="runSeleniumTests()">Run Tests</button>
-  </div>
-</div>
+    <!-- Selenium Console -->
+    <div class="selcyp-console" id="seleniumConsole" style="display: none">
+      <div class="output-section2">
+        <span
+          >Selenium Test Runner
+          <button
+            id="closeConsoleSelenium"
+            title="Close Console"
+            style="
+              float: right;
+              background: none;
+              border: none;
+              color: rgb(255, 0, 0);
+              font-size: 16px;
+              cursor: pointer;
+            "
+          >
+            ✖
+          </button></span
+        >
+        <span>------------------------------</span>
+        <pre id="seleniumLogs">Click "Run Tests" to begin...</pre>
+        <button onclick="runSeleniumTests()">Run Tests</button>
+      </div>
+    </div>
 
-<!-- Cypress Console -->
-<div class="selcyp-console" id="cypressConsole" style="display: none;">
-  <div class="output-section2">
-    <span>Cypress Test Runner <button id="closeConsoleCypress" title="Close Console" style="float:right; background:none; border:none; color:rgb(255, 0, 0); font-size:16px; cursor:pointer;">✖</button></span>
-    <span>------------------------------</span>
-    <pre id="cypressLogs">Click "Run Tests" to begin...</pre>
-    <button onclick="runCypressTests()">Run Tests</button>
-  </div>
-</div>
+    <!-- Cypress Console -->
+    <div class="selcyp-console" id="cypressConsole" style="display: none">
+      <div class="output-section2">
+        <span
+          >Cypress Test Runner
+          <button
+            id="closeConsoleCypress"
+            title="Close Console"
+            style="
+              float: right;
+              background: none;
+              border: none;
+              color: rgb(255, 0, 0);
+              font-size: 16px;
+              cursor: pointer;
+            "
+          >
+            ✖
+          </button></span
+        >
+        <span>------------------------------</span>
+        <pre id="cypressLogs">Click "Run Tests" to begin...</pre>
+        <button onclick="runCypressTests()">Run Tests</button>
+      </div>
+    </div>
 
-<script src="selcyp.js"></script>
+    <script src="selcyp.js"></script>
 
-<!-- MantisBT Console -->
-<div class="selcyp-console" id="mantisConsole" style="display: none;">
-  <div class="output-section2">
-    <span>MantisBT Test Runner <button id="closeConsoleMantis" title="Close Console" style="float:right; background:none; border:none; color:rgb(255, 0, 0); font-size:16px; cursor:pointer;">✖</button></span>
-    <span>------------------------------</span>
-    <pre id="mantisLogs">Click "Run Tests" to begin...</pre>
-    <button onclick="runMantisTests()">Run Tests</button>
-  </div>
-</div>
+    <!-- MantisBT Console -->
+    <div class="selcyp-console" id="mantisConsole" style="display: none">
+      <div class="output-section2">
+        <span
+          >MantisBT Test Runner
+          <button
+            id="closeConsoleMantis"
+            title="Close Console"
+            style="
+              float: right;
+              background: none;
+              border: none;
+              color: rgb(255, 0, 0);
+              font-size: 16px;
+              cursor: pointer;
+            "
+          >
+            ✖
+          </button></span
+        >
+        <span>------------------------------</span>
+        <pre id="mantisLogs">Click "Run Tests" to begin...</pre>
+        <button onclick="runMantisTests()">Run Tests</button>
+      </div>
+    </div>
 
-<!-- TestLink Console -->
-<div class="selcyp-console" id="testLinkConsole" style="display: none;">
-  <div class="output-section2">
-    <span>TestLink Test Runner <button id="closeConsoleTestLink" title="Close Console" style="float:right; background:none; border:none; color:rgb(255, 0, 0); font-size:16px; cursor:pointer;">✖</button></span>
-    <span>------------------------------</span>
-    <pre id="testLinkLogs">Click "Run Tests" to begin...</pre>
-    <button onclick="runTestLinkTests()">Run Tests</button>
-  </div>
-</div>
-<script src="mntl.js"></script>
+    <!-- TestLink Console -->
+    <div class="selcyp-console" id="testLinkConsole" style="display: none">
+      <div class="output-section2">
+        <span
+          >TestLink Test Runner
+          <button
+            id="closeConsoleTestLink"
+            title="Close Console"
+            style="
+              float: right;
+              background: none;
+              border: none;
+              color: rgb(255, 0, 0);
+              font-size: 16px;
+              cursor: pointer;
+            "
+          >
+            ✖
+          </button></span
+        >
+        <span>------------------------------</span>
+        <pre id="testLinkLogs">Click "Run Tests" to begin...</pre>
+        <button onclick="runTestLinkTests()">Run Tests</button>
+      </div>
+    </div>
+    <script src="mntl.js"></script>
   </body>
-    </div>
-
-
-
 
   <!-- 
  Fail test log -->
