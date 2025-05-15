@@ -4,6 +4,7 @@ const sendBtn = document.getElementById("sendBtn");
 const keySound = document.getElementById("keySound");
 const logAreaTerminal = document.getElementById("logAreaterminal"); // new log area
 const sendSound = document.getElementById("sendSound");
+const triggerBugBtn = document.getElementById("triggerBugBtn");
 
 
 
@@ -151,4 +152,31 @@ sendBtn.addEventListener("click", () => {
       window.location.href = mailto;
     }, 1000);
   }
+});
+
+
+/* trigger buf */
+
+triggerBugBtn.addEventListener("click", () => {
+  // Simulate a bug: trying to access property of undefined
+  const brokenObject = undefined;
+  console.log(brokenObject.someProperty); // 💥 This triggers an error
+});
+
+window.addEventListener("error", (event) => {
+  const errorMessage = `🚨 JS Error Caught:\n> ${event.message}\nFile: ${event.filename}\nLine: ${event.lineno}`;
+  console.error(errorMessage);
+
+  const logEntry = document.createElement("div");
+  logEntry.style.color = "red";
+  logEntry.style.fontFamily = "monospace";
+  logEntry.style.whiteSpace = "pre-wrap";
+  logEntry.style.marginBottom = "1em";
+  logEntry.textContent = errorMessage;
+
+  logAreaterminal.appendChild(logEntry);
+
+  setTimeout(() => {
+    logAreaterminal.removeChild(logEntry);
+  }, 10000);
 });
