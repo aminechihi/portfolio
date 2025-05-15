@@ -10,7 +10,6 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        
         font-family: "VT323", monospace;
         font-size: 16px;
         color: #00ff00;
@@ -44,6 +43,7 @@ body {
        #content {
       opacity: 0;
       transition: opacity 1s ease;
+      
     }
 
 /* General Boot Screen Layout */
@@ -690,6 +690,22 @@ body {
     
   }
 
+  #jmeterConsole {
+
+  overflow-y: auto;  max-width: 300px;
+  white-space: pre-wrap;  /* Allows wrapping inside <pre> */
+  word-break: break-word; /* Breaks long words that don't have spaces */
+       
+  }
+
+#apiConsole {
+
+  overflow-y: auto;  
+  max-width: 300px;
+ 
+       
+  }
+
   #tools {
     margin: 20px auto;
     font-size: 10px;
@@ -737,3 +753,8 @@ body {
     object-fit: contain;
   }
 }
+
+/* crt EFFECTS */
+
+   
+    
