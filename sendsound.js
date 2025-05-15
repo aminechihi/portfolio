@@ -5,6 +5,7 @@ const keySound = document.getElementById("keySound");
 const logAreaTerminal = document.getElementById("logAreaterminal"); // new log area
 const sendSound = document.getElementById("sendSound");
 const triggerBugBtn = document.getElementById("triggerBugBtn");
+const playCdBtn = document.getElementById("playcd");
 
 
 
@@ -188,4 +189,81 @@ window.addEventListener("error", (event) => {
   setTimeout(() => {
     logAreaterminal.removeChild(logEntry);
   }, 10000);
+});
+
+
+/* play broken CD */
+
+
+let glitchAudio = null; // track the audio instance
+let isPlaying = false;
+
+playCdBtn.addEventListener("click", () => {
+  const timestamp = new Date().toLocaleTimeString();
+
+  // If already playing, stop the sound and log it
+  if (isPlaying && glitchAudio) {
+    glitchAudio.pause();
+    glitchAudio.currentTime = 0; // rewind to start
+    isPlaying = false;
+
+    const stopEntry = document.createElement("div");
+    stopEntry.style.marginBottom = "1em";
+    stopEntry.style.whiteSpace = "pre-wrap";
+    stopEntry.style.fontFamily = "monospace";
+    stopEntry.style.color = "yellow";
+    stopEntry.textContent = `Log Report :\n> [${timestamp}] Broken media playback manually stopped.`;
+    logAreaterminal.appendChild(stopEntry);
+    setTimeout(() => logAreaterminal.removeChild(stopEntry), 10000);
+
+    return;
+  }
+
+  // Not playing yet — start playback
+  glitchAudio = new Audio("audio/glitch.mp3"); // replace with your real path
+  isPlaying = true;
+
+  const startEntry = document.createElement("div");
+  startEntry.style.marginBottom = "1em";
+  startEntry.style.whiteSpace = "pre-wrap";
+  startEntry.style.fontFamily = "monospace";
+  startEntry.textContent = `Log Report :\n> [${timestamp}] Attempting to play broken media...`;
+  logAreaterminal.appendChild(startEntry);
+  setTimeout(() => logAreaterminal.removeChild(startEntry), 10000);
+
+  glitchAudio.play()
+    .then(() => {
+      const successEntry = document.createElement("div");
+      successEntry.style.marginBottom = "1em";
+      successEntry.style.whiteSpace = "pre-wrap";
+      successEntry.style.fontFamily = "monospace";
+      successEntry.style.color = "limegreen";
+      successEntry.textContent = `Log Report :\n> [${timestamp}] Playback started successfully (may be corrupted).`;
+      logAreaterminal.appendChild(successEntry);
+      setTimeout(() => logAreaterminal.removeChild(successEntry), 10000);
+    })
+    .catch((error) => {
+      isPlaying = false; // reset if error
+      const errorEntry = document.createElement("div");
+      errorEntry.style.marginBottom = "1em";
+      errorEntry.style.whiteSpace = "pre-wrap";
+      errorEntry.style.fontFamily = "monospace";
+      errorEntry.style.color = "orange";
+      errorEntry.textContent = `Log Report :\n> [${timestamp}] Playback failed:\n${error.message}`;
+      logAreaterminal.appendChild(errorEntry);
+      setTimeout(() => logAreaterminal.removeChild(errorEntry), 10000);
+    });
+
+  // Detect when playback ends naturally
+  glitchAudio.addEventListener("ended", () => {
+    isPlaying = false;
+    const endEntry = document.createElement("div");
+    endEntry.style.marginBottom = "1em";
+    endEntry.style.whiteSpace = "pre-wrap";
+    endEntry.style.fontFamily = "monospace";
+    endEntry.style.color = "gray";
+    endEntry.textContent = `Log Report :\n> [${timestamp}] Playback finished.`;
+    logAreaterminal.appendChild(endEntry);
+    setTimeout(() => logAreaterminal.removeChild(endEntry), 10000);
+  });
 });
